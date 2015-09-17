@@ -39,11 +39,8 @@ namespace glua_scraper.provider
             {
                 foreach (Hook hook in hooks[nameSpace])
                 {
-                    JObject compOb = new JObject
-                    {
-                        {"trigger", hook.Name},
-                        { "contents", hook.Name}
-                    };
+                    if(hook.Name != "")
+                        arr?.Add(hook.Name);
                 }
             }
         }
@@ -139,35 +136,6 @@ namespace glua_scraper.provider
             }
             builder.Append($")");
             //builder.Append($")${{{Args?.Count + 1 ?? 1}:}}");
-            return builder.ToString();
-        }
-
-        public string BuildHookSnippet(Hook hook)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.Append($"function {hook.Parent}:{hook.Name}(");
-            if (hook.Args != null && hook.Args.Count > 0)
-            {
-                for (int i = 0; i < hook.Args.Count; i++)
-                    builder.Append($"${{{i + 1}:{hook.Args[i].Type} {hook.Args[i].Name}{(hook.Args[i].Default != "" ? "=" + hook.Args[i].Default : "")}}},");
-                builder.Length--;
-            }
-
-            builder.AppendLine(")");
-            builder.Append("    ");
-
-            if (hook.ReturnValues != null && hook.ReturnValues.Count > 0)
-            {
-                builder.Append("return ");
-                for (int i = 0; i < hook.ReturnValues.Count; i++)
-                    builder.Append($"${{{i + 1 + hook.Args?.Count ?? 0}:{hook.ReturnValues[i].Type}}},");
-                builder.Length--;
-            }
-            else
-                builder.Append($"${{{hook.Args?.Count + 1 ?? 1}:-- body}}");
-            builder.AppendLine();
-            builder.Append("end");
-
             return builder.ToString();
         }
     }
