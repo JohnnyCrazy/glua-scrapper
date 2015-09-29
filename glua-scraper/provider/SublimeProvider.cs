@@ -19,7 +19,7 @@ namespace glua_scraper.provider
         {
             ob = new JObject
             {
-                {"source", "source.lua - keyword.control.lua - constant.language.lua - string"},
+                {"scope", "source.lua - keyword.control.lua - constant.language.lua - string"},
                 {"completions", new JArray("in", "else", "return", "false", "true", "break", "or", "and")}
             };
 
