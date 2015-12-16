@@ -66,7 +66,8 @@ namespace glua_scraper
                 }
 
                 _provider.OnFinish();
-
+                
+                Console.WriteLine("Process finished. (Press any Key to exit)");
                 Console.ReadKey();
             }
         }
