@@ -29,7 +29,7 @@ namespace glua_scraper
             Parent = WikiArticle.GetValue(raw, "Parent") != "" ? WikiArticle.GetValue(raw, "Parent") : nameSpace;
             Description = WikiArticle.ParseDescription(WikiArticle.GetValue(raw, "Description"));
             Realm = WikiArticle.GetValue(raw, "Realm");
-            IsClass = WikiArticle.GetValue("raw", "IsClass") == "Yes";
+            IsClass = WikiArticle.GetValue(raw, "IsClass") == "Yes";
         }
 
         public override string ToString()
