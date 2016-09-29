@@ -107,15 +107,15 @@ namespace glua_scraper.provider
 
         public void SaveClassFuncs(Dictionary<string, List<Function>> classFuncs)
         {
-            SaveGenericFuncs(classFuncs, "classFuncs");
+            SaveGenericFuncs(classFuncs, "classFuncs", "Classfunc");
         }
 
         public void SavePanelFuncs(Dictionary<string, List<Function>> panelFuncs)
         {
-            SaveGenericFuncs(panelFuncs, "panelFuncs");
+            SaveGenericFuncs(panelFuncs, "panelFuncs", "Panelfunc");
         }
 
-        private void SaveGenericFuncs(Dictionary<string, List<Function>> funcs, string fileName)
+        private void SaveGenericFuncs(Dictionary<string, List<Function>> funcs, string fileName, string funcType)
         {
             JArray array = new JArray();
 
@@ -151,7 +151,7 @@ namespace glua_scraper.provider
                         {"displayText", $"{func.Parent}:{func.Name}"},
                         {"snippet", BuildGlobalSnippet(func)},
                         {"leftLabel", string.Join(",", func.ReturnValues?.Select(ret => ret.Type) ?? new[] {"func"})},
-                        {"rightLabel", $"{func.Realm}-Classfunc"},
+                        {"rightLabel", $"{func.Realm}-{funcType}"},
                         {"type", "method"},
                         {"desc", func.Description},
                         {"descUrl", func.DescriptionUrl}
