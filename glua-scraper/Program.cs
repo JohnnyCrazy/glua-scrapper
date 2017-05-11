@@ -112,7 +112,12 @@ namespace glua_scraper
 
                 for (int i = 0; i < htmlNodes.Count; i++)
                 {
-                    var href = htmlNodes[i].ChildNodes.First().Attributes["href"].Value;
+                    var hrefs = htmlNodes[i].ChildNodes.First().Attributes["href"];
+
+                    if (hrefs == null)
+                        continue;
+
+                    var href = hrefs.Value;
                     string nameSpace = htmlNodes[i].InnerText.Split('/').First().Replace(" ", "_");
 
                     Console.WriteLine($"Processing [{i}/{htmlNodes.Count}] {nameSpace}: {"http://wiki.garrysmod.com" + href}");
@@ -149,7 +154,12 @@ namespace glua_scraper
 
                 for (int i = 0; i < htmlNodes.Count; i++)
                 {
-                    var href = htmlNodes[i].ChildNodes.First().Attributes["href"].Value;
+                    var hrefs = htmlNodes[i].ChildNodes.First().Attributes["href"];
+
+                    if (hrefs == null)
+                        continue;
+
+                    var href = hrefs.Value;
                     string nameSpace = htmlNodes[i].InnerText.Split('/').First().Replace(" ", "_");
 
                     Console.WriteLine($"Processing [{i}/{htmlNodes.Count}] {nameSpace}: {"http://wiki.garrysmod.com" + href}");
@@ -186,7 +196,12 @@ namespace glua_scraper
 
                 for (int i = 0; i < htmlNodes.Count; i++)
                 {
-                    var href = htmlNodes[i].ChildNodes.First().Attributes["href"].Value;
+                    var hrefs = htmlNodes[i].ChildNodes.First().Attributes["href"];
+
+                    if (hrefs == null)
+                        continue;
+
+                    var href = hrefs.Value;
                     string nameSpace = htmlNodes[i].InnerText.Split('/').First().Replace(" ", "_");
 
                     Console.WriteLine($"Processing [{i}/{htmlNodes.Count}] {nameSpace}: {"http://wiki.garrysmod.com" + href}");
@@ -223,7 +238,12 @@ namespace glua_scraper
 
                 for (int i = 0; i < htmlNodes.Count; i++)
                 {
-                    var href = htmlNodes[i].ChildNodes.First().Attributes["href"].Value;
+                    var hrefs = htmlNodes[i].ChildNodes.First().Attributes["href"];
+
+                    if (hrefs == null)
+                        continue;
+
+                    var href = hrefs.Value;
                     string nameSpace = htmlNodes[i].InnerText.Split('/').First().Replace(" ", "_");
 
                     Console.WriteLine($"Processing [{i}/{htmlNodes.Count}] {nameSpace}: {"http://wiki.garrysmod.com" + href}");
@@ -259,7 +279,12 @@ namespace glua_scraper
 
                 for (int i = 0; i < htmlNodes.Count; i++)
                 {
-                    var href = htmlNodes[i].ChildNodes.First().Attributes["href"].Value;
+                    var hrefs = htmlNodes[i].ChildNodes.First().Attributes["href"];
+
+                    if (hrefs == null)
+                        continue;
+
+                    var href = hrefs.Value;
                     string nameSpace = htmlNodes[i].InnerText.Split('/').First().Replace(" ", "_");
 
                     if (nameSpace == "Global")
