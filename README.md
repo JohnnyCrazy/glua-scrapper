@@ -15,7 +15,10 @@ This small tool will extract function info out of [wiki.garrysmod.com](http://wi
 >
 >  --help            Display this help screen.
 >
-> Providers: AtomIO,SublimeText
+> Providers: VSCode, SublimeText, AtomIO
+
+Extract all functions and convert it into a vscode format used in  [VSCode GLua](https://marketplace.visualstudio.com/items?itemName=aStonedPenguin.glua#review-details):
+> glua-scraper.exe -p VSCode -m all
 
 Extract all functions and convert it into a sublime-text format used in  [Sublime-GLua-Highlight](https://github.com/FPtje/Sublime-GLua-Highlight):
 > glua-scraper.exe -p SublimeText -m all
